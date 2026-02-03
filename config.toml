@@ -6,8 +6,6 @@ generate_feeds = false
 ignored_content = ["content/shop/**"]
 
 
-[markdown]
-hard_breaks = false 
 
 [languages]
 [languages.kr]
