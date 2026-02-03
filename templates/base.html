@@ -75,10 +75,10 @@
 
         <!-- ✅ 메인 메뉴: 데스크탑에서 항상 보이고, 모바일에선 토글 대상 -->
         <nav id="nav-menu" aria-label="primary">
+          <a href="{{ get_url(path=langprefix ~ '/') }}">all archive</a><br>
           <a href="{{ get_url(path=langprefix ~ '/works/') }}">works</a><br>
           <a href="{{ get_url(path=langprefix ~ '/about/') }}">about</a><br>
           <a href="{{ get_url(path=langprefix ~ '/contact/') }}">contact</a><br>
-          <a href="{{ get_url(path=langprefix ~ '/') }}">all archive</a><br>
         
           <!-- ⛔️ 비활성: 링크 대신 span, 클릭 불가, 회색(60%) -->
           <span class="nav-item nav-item--disabled" aria-disabled="true" title="Coming soon">shop</span>
