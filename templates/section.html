@@ -46,33 +46,7 @@
       </tr>
     {% endfor %}
 
-    {# ---------- shop ---------- #}
-    {% set s_shop = get_section(path="shop/_index.md") %}
-    {% set list_shop = s_shop.pages | filter(attribute="lang", value=lang) %}
-    {% set list_shop_len = list_shop | length %}
-    {% if lang == "kr" and list_shop_len == 0 %}
-      {% set s_shop = get_section(path="shop/_index.kr.md") %}
-      {% set list_shop = s_shop.pages | filter(attribute="lang", value=lang) %}
-    {% endif %}
-    {% for p in list_shop %}
-      {% set doc = p.extra.doc_no | default(value=0) %}
-      {% if doc | int == 0 %}{% continue %}{% endif %}
-      {% set year_extra = p.extra.date_year | default(value="") %}
-      {% set cat = p.extra.category | default(value="shop") %}
-      <tr data-title="{{ p.title | lower }}" data-doc="{{ doc }}" data-cat="{{ cat | lower }}"
-          data-year="{% if year_extra %}{{ year_extra }}{% elif p.date %}{{ p.date | date(format='%Y') }}{% endif %}">
-        <td>{{ doc }}</td>
-        {% set display_title_src = p.extra.display_title | default(value=p.title) %}
-<td class="title-cell">
-  <a href="{{ p.permalink }}">
-    {{ display_title_src | markdown(inline=true) | safe }}
-  </a>
-</td>
-        <td>{{ cat }}</td>
-        <td>{% if year_extra %}{{ year_extra }}{% elif p.date %}{{ p.date | date(format='%Y') }}{% else %}–{% endif %}</td>
-      </tr>
-    {% endfor %}
-
+    
     {# ---------- glossary ---------- #}
     {% set s_glossary = get_section(path="glossary/_index.md") %}
     {% set list_glossary = s_glossary.pages | filter(attribute="lang", value=lang) %}
